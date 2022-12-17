@@ -81,22 +81,22 @@ DB에 insert만 하고, 내가 직접 select 문으로 결과를 확인하는거
         - 운영과 테스트 환경의 application properties 분리하기
 
 [h2 실행]
+```
 docker run -d -p 1521:1521 -p 81:81 --name=MyH2Instance -e H2_OPTIONS='-ifNotExists' oscarfonts/h2 
+```
 
 [properties]
+```
 spring.datasource.url=jdbc:h2:tcp://localhost:1521/test
 spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.username=sa
-
 spring.jpa.show-sql=true
-
-# hibernate Setting
 spring.jpa.database=h2
 spring.jpa.hibernate.ddl-auto=create
 spring.jpa.generate-ddl=true
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
-
+```
 -----------------------------------------
 9. 테스트 더블
         - Mocking
