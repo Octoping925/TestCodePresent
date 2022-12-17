@@ -114,12 +114,13 @@ LottoGenerator에서 getRandomNo때문에 getLottoNums가 중복이 포함된 �
 
 https://github.com/mockito/mockito/wiki/Mockito-features-in-Korean
 
-
+```
 Mockito.doAnswer(invocation -> {
         Object[] args = invocation.getArguments();
         System.out.println("Fake Email! " + Arrays.toString(args));
         return null;
 }).when(emailService).sendEmail(Mockito.anyString(), Mockito.anyString());
+```
 
 
 하지만 모킹을 하면 모킹된 빈이 들어간 앱콘텍스트가 또 생기는 거니 스프링이 여러번 올라감.
@@ -130,8 +131,9 @@ Mockito.doAnswer(invocation -> {
 근데 이건 회원가입 테스트는 하지만 이메일은 날리기 싫은 경우이고,
 이메일 전송함수가 실행이 잘 되는지를 체크하고 싶은데 이메일 전송이 되지 않았으면 좋겠는 경우는 spy를 사용.
 
-
+```
 Mockito.verify(emailService, Mockito.times(1)).sendEmail(email, "가입 완료");
+```
 한번 실패하는 케이스도 보여주자.
 
 
